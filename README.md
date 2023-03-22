@@ -10,15 +10,232 @@ It is simple to use and fully customizable. It works on both android and iOS pla
 
 ---
 
-#### Steps to Run & Build
+## Quick Access
 
-- Install dependencies `yarn`
-- Build `yarn build`
-- Install dependencies in example app `cd example && yarn && cd ios/ && pod install && cd ..`
-- Run example app `yarn ios`
+[Installation](#installation) | [Usage](#usage) | [Properties](#properties) | [Example](#example) | [License](#license)
+
+# Installation
+
+##### 1. Install library and react-native-photos-gallery
+
+```bash
+npm install react-native-photos-gallery react-native-reanimated react-native-gesture-handler
+```
+
+###### --- or ---
+
+```bash
+yarn add react-native-photos-gallery react-native-reanimated react-native-gesture-handler
+```
+
+##### 2. Install cocoapods in the ios project
+
+```bash
+cd ios && pod install
+```
+
+> Note: Make sure to add Reanimated's babel plugin to your `babel.config.js`
+
+```js
+module.exports = {
+      ...
+      plugins: [
+          ...
+          'react-native-reanimated/plugin',
+      ],
+  };
+```
+
+##### Know more about [react-native-reanimated](https://www.npmjs.com/package/react-native-reanimated)
+
+## 🎬 Preview
 
 ---
 
-- Run `yarn build` to sync package changes / updates
+| OneColumn List                             | TwoColumn List                           | Horizontal List                           |
+| ------------------------------------------ | ---------------------------------------- | ----------------------------------------- |
+| ![alt Default](./assets/oneColumnList.gif) | ![alt Modal](./assets/twoColumnList.gif) | ![alt Modal](./assets/horizontalList.gif) |
 
 ---
+
+### ArrayData
+
+```jsx
+const data = [
+  {
+    id: number,
+    source: ImageSourcePropType,
+  },
+];
+```
+
+> Note: Find assets image from [here](./example/src/assets/images)
+
+## Usage
+
+```jsx
+import React from 'react';
+import { SafeAreaView, StyleSheet } from 'react-native';
+import { PhotoGallery } from 'react-native-photos-gallery';
+
+export const data = [
+  {
+    id: 1,
+    source: require('./assets/images/apple.jpeg'),
+  },
+  {
+    id: 2,
+    source: require('./assets/images/apple_icon.jpeg'),
+  },
+  {
+    id: 3,
+    source: require('./assets/images/DeepPurple.png'),
+  },
+  {
+    id: 4,
+    source: require('./assets/images/iPhone12.jpeg'),
+  },
+  {
+    id: 5,
+    source: require('./assets/images/iPhoneX.jpeg'),
+  },
+  {
+    id: 6,
+    source: require('./assets/images/iphoneXWall.jpg'),
+  },
+  {
+    id: 7,
+    source: require('./assets/images/112ProMax.jpg'),
+  },
+  {
+    id: 8,
+    source: {
+      uri: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+    },
+  },
+];
+
+const App = () => {
+  return (
+    <SafeAreaView style={styles.screen}>
+      <PhotoGallery
+        data={data}
+        onImageExpand={({ visible }) => console.log(visible)}
+        animatedImageDelay={60}
+        modalBackgroundStyle={styles.modalBackgroundStyle}
+      />
+    </SafeAreaView>
+  );
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+  screen: { flex: 1 },
+  modalBackgroundStyle: {
+    backgroundColor: 'white',
+  },
+});
+```
+
+#### 🎬 Preview
+
+## ![Default Modal](./assets/twoColumnList.gif)
+
+## Properties
+
+| Props                        |  Default  |                  Type                   | Description                                                                                            |
+| ---------------------------- | :-------: | :-------------------------------------: | ------------------------------------------------------------------------------------------------------ |
+| **data**                     |     -     |         [ArrayData](#arraydata)         | Data to render images                                                                                  |
+| scaledImageResizeMode        | `'cover'` |            `ImageResizeMode`            | Image size mode                                                                                        |
+| animationCloseSpeed          |    350    |            `Range<200, 500>`            | Animation close speed between 200 to 500                                                               |
+| animatedThumbnailScrollSpeed |    30     |             10 \| 20 \| 30              | Thumbnail List scroll speed                                                                            |
+| animatedImageDelay           |    90     |          20 \| 30 \| 60 \| 90           | Animated image delay                                                                                   |
+| thumbnailListImageHeight     |    120    |                 number                  | Height to thumbnail list image                                                                         |
+| thumbnailListImageWidth      |    120    |                 number                  | Width to thumbnail list image                                                                          |
+| thumbnailListImageSpace      |    10     |                 number                  | Space between thumbnail list images                                                                    |
+| renderHeader                 |     -     |                function                 | Call back function to Render custom header and provide `close()` in argument                           |
+| onImageExpand                |     -     |                function                 | Call back function to get visible of expanded image and provide `{visible}` in argument                |
+| renderNetworkLoader          |     -     |                function                 | Call back function to render custom loader                                                             |
+| flatListProps                |     -     | FlatListProps<[ArrayData](#arraydata)>  | Provide <a href="https://reactnative.dev/docs/flatlist#props">flatlist props</a>                       |
+| listItemProps                |     -     |     [ListItemProps](#listitemprops)     | List item props contain `containerStyle`, `imageContainerStyle` and `imageProps`                       |
+| modalProps                   |     -     |               ModalProps                | Provide <a href="https://reactnative.dev/docs/modal#props">Modal props</a>                             |
+| modalBackgroundProps         |     -     |        `AnimateProps<ViewProps>`        | Provide animated view props                                                                            |
+| modalBackgroundStyle         |     -     |        `AnimateStyle<ViewStyle>`        | Modal background style                                                                                 |
+| modalHeaderProps             |     -     |  [ModalHeaderProps](#modalheaderprops)  | Modal header props contain `containerProps` and `containerStyle`                                       |
+| modalContentProps            |     -     | [ModalContentProps](#modalcontentprops) | Modal content props contain `contentProps` and `contentStyle`                                          |
+| modalContentImageProps       |     -     |       `AnimateProps<ImageProps>`        | Modal content <a href="https://reactnative.dev/docs/image#props">Image props</a>                       |
+| modalFooterProps             |     -     |  [ModalFooterProps](#modalfooterprops)  | Modal footer props contain `thumbnailFlatListProps`, `footerContainerProps` and `footerContainerStyle` |
+| networkLoaderProps           |     -     |        `ActivityIndicatorProps`         | Provide <a href="https://reactnative.dev/docs/activityindicator#props">ActivityIndicator props</a>     |
+| networkImageProps            |     -     |              `ImageProps`               | Provide <a href="https://reactnative.dev/docs/image#props">Image props</a>                             |
+
+---
+
+##### ListItemProps
+
+| Props               | Default |            Type            | Description           |
+| ------------------- | :-----: | :------------------------: | --------------------- |
+| containerStyle      |    -    |         ViewStyle          | Container style       |
+| imageContainerStyle |    -    | `AnimateStyle<ViewStyle>`  | Image container style |
+| imageProps          |    -    | `AnimateProps<ImageProps>` | Image Props           |
+
+---
+
+##### ModalHeaderProps
+
+| Props          | Default |           Type            | Description     |
+| -------------- | :-----: | :-----------------------: | --------------- |
+| containerProps |    -    | `AnimateProps<ViewProps>` | Container props |
+| containerStyle |    -    | `AnimateStyle<ViewStyle>` | Container style |
+
+---
+
+##### ModalContentProps
+
+| Props        | Default |           Type            | Description   |
+| ------------ | :-----: | :-----------------------: | ------------- |
+| contentProps |    -    | `AnimateProps<ViewProps>` | Content props |
+| contentStyle |    -    | `AnimateStyle<ViewStyle>` | Content style |
+
+---
+
+##### ModalFooterProps
+
+| Props                  | Default |           Type            | Description               |
+| ---------------------- | :-----: | :-----------------------: | ------------------------- |
+| thumbnailFlatListProps |    -    |   `FlatListProps<any>`    | Thumbnail flat-list props |
+| footerContainerProps   |    -    | `AnimateProps<ViewProps>` | Container props           |
+| footerContainerStyle   |    -    | `AnimateStyle<ViewStyle>` | Container style           |
+
+##### Know more about [ViewProps](https://reactnative.dev/docs/view#props), [ViewStyle](https://reactnative.dev/docs/view-style-props), [FlatListProps](https://reactnative.dev/docs/flatlist#props), [ModalProps](https://reactnative.dev/docs/modal#props), [ImageProps](https://reactnative.dev/docs/image#props)
+
+# Example
+
+A full working example project is here [Example](./example/src/App.tsx)
+
+```sh
+yarn
+yarn example ios   // For ios
+yarn example android   // For Android
+```
+
+## Find this library useful? ❤️
+
+Support it by joining [stargazers](https://github.com/SimformSolutionsPvtLtd/react-native-photos-gallery/stargazers) for this repository.⭐
+
+## Bugs / Feature requests / Feedbacks
+
+For bugs, feature requests, and discussion please use [GitHub Issues](https://github.com/SimformSolutionsPvtLtd/react-native-photos-gallery/issues/new?labels=bug&late=BUG_REPORT.md&title=%5BBUG%5D%3A), [GitHub New Feature](https://github.com/SimformSolutionsPvtLtd/react-native-photos-gallery/issues/new?labels=enhancement&late=FEATURE_REQUEST.md&title=%5BFEATURE%5D%3A), [GitHub Feedback](https://github.com/SimformSolutionsPvtLtd/react-native-photos-gallery/issues/new?labels=enhancement&late=FEATURE_REQUEST.md&title=%5BFEEDBACK%5D%3A)
+
+## 🤝 How to Contribute
+
+We'd love to have you improve this library or fix a problem 💪
+Check out our [Contributing Guide](CONTRIBUTING.md) for ideas on contributing.
+
+## Awesome Mobile Libraries
+
+- Check out our other [available awesome mobile libraries](https://github.com/SimformSolutionsPvtLtd/Awesome-Mobile-Libraries)
+
+## License
+
+- [MIT License](./LICENSE)
