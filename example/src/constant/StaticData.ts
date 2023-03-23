@@ -36,3 +36,9 @@ export const data = [
     },
   },
 ];
+
+export const listData = [
+  { id: 1, title: 'Two Column List', isSelected: true },
+  { id: 2, title: 'One Column List', isSelected: false },
+  { id: 3, title: 'Horizontal List', isSelected: false },
+];
