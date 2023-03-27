@@ -1,8 +1,15 @@
 import React from 'react';
-import { Button } from 'react-native-photos-gallery';
+import { SafeAreaView } from 'react-native';
+import { PhotoGallery } from 'react-native-photos-gallery';
+import styles from './AppStyles';
+import { data } from './constant';
 
 const App = () => {
-  return <Button text="Example" />;
+  return (
+    <SafeAreaView style={styles.screen}>
+      <PhotoGallery data={data} />
+    </SafeAreaView>
+  );
 };
 
 export default App;

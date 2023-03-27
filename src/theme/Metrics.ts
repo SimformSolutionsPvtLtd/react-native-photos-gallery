@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 
 export const { width: windowWidth, height: windowHeight } =
   Dimensions.get('window');
@@ -72,3 +72,7 @@ export const moderateScale = (
     changeSize + (scale(changeSize, skipAspectRatio) - changeSize) * factor
   );
 };
+
+export const isAndroid = Platform.OS === 'android';
+
+export const STATUS_BAR_OFFSET = isAndroid ? 0 : 44;
