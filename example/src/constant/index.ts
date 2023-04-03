@@ -1,3 +1,3 @@
-import { data } from './StaticData';
+import { data, listData } from './StaticData';
 
-export { data };
+export { data, listData };
