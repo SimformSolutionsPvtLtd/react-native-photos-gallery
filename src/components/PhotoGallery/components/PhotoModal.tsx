@@ -39,6 +39,7 @@ const PhotosModal = ({
   maxZoomScale,
   disableZoom,
   disableSwipeDown,
+  disableHorizontalList = false,
   ...rest
 }: PhotosModalProps) => {
   const {
