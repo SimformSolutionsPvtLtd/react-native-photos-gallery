@@ -23,10 +23,13 @@ const PhotosModal = ({
   thumbnailListImageHeight,
   thumbnailListImageWidth,
   thumbnailListImageSpace,
+  networkLoaderProps,
+  renderNetworkLoader,
+  networkImageProps,
   animationCloseSpeed,
   animatedThumbnailScrollSpeed,
   animatedImageDelay,
-  modalBackgroundStyle,
+  modalBackgroundStyle = {},
   ...rest
 }: PhotosModalProps) => {
   const {
@@ -94,6 +97,9 @@ const PhotosModal = ({
           thumbnailListImageWidth,
           thumbnailListImageSpace,
           footerContainerStyle,
+          networkLoaderProps,
+          renderNetworkLoader,
+          networkImageProps,
         }}
         getFooterContainerHeight={setFooterHeight}
       />
