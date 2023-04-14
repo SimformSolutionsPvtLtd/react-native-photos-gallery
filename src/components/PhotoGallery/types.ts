@@ -24,12 +24,13 @@ export interface PhotoGalleryProps
       | 'modalFooterProps'
       | 'modalContentProps'
       | 'renderHeader'
-      | 'horizontalListImageHeight'
-      | 'horizontalListImageWidth'
+      | 'thumbnailListImageHeight'
+      | 'thumbnailListImageWidth'
       | 'animationCloseSpeed'
-      | 'animatedHorizontalScrollSpeed'
+      | 'animatedThumbnailScrollSpeed'
       | 'animatedImageDelay'
-      | 'horizontalListImageSpace'
+      | 'thumbnailListImageSpace'
+      | 'modalBackgroundStyle'
     > {
   data: Array<ArrayData>;
   scaledImageResizeMode?: ImageResizeMode;
@@ -96,9 +97,9 @@ export interface ModalContentProps {
 export interface PhotosModalProps
   extends Pick<
       PhotoModalFooterProps,
-      | 'horizontalListImageHeight'
-      | 'horizontalListImageWidth'
-      | 'horizontalListImageSpace'
+      | 'thumbnailListImageHeight'
+      | 'thumbnailListImageWidth'
+      | 'thumbnailListImageSpace'
     >,
     Omit<ModalProps, 'visible'> {
   visible: boolean;
@@ -111,7 +112,7 @@ export interface PhotosModalProps
   item: ArrayData;
   modalBackgroundProps?: Omit<AnimateProps<ViewProps>, 'style'>;
   animationCloseSpeed?: Range<200, 500>;
-  animatedHorizontalScrollSpeed?: 10 | 20 | 30;
+  animatedThumbnailScrollSpeed?: 10 | 20 | 30;
   animatedImageDelay?: 20 | 30 | 60 | 90;
   modalHeaderProps?: Pick<
     PhotoModalHeaderProps,
@@ -119,9 +120,15 @@ export interface PhotosModalProps
   >;
   modalFooterProps?: Pick<
     PhotoModalFooterProps,
-    'horizontalFlatListProps' | 'footerContainerProps' | 'footerContainerStyle'
+    'thumbnailFlatListProps' | 'footerContainerProps' | 'footerContainerStyle'
   >;
   modalContentProps?: ModalContentProps;
+  modalBackgroundStyle?: StyleProp<
+    Omit<
+      AnimateStyle<ViewStyle>,
+      'top' | 'left' | 'width' | 'height' | 'position'
+    >
+  >;
 }
 
 export interface PhotoModalHeaderProps {
@@ -143,7 +150,7 @@ export interface PhotoModalFooterProps {
       y: number;
     };
   }>;
-  horizontalFlatListProps?: Omit<
+  thumbnailFlatListProps?: Omit<
     AnimateProps<FlatListProps<any>>,
     'data' | 'renderItem' | 'onScrollToIndexFailed' | 'onScroll' | 'horizontal'
   >;
@@ -152,9 +159,9 @@ export interface PhotoModalFooterProps {
     Omit<AnimateStyle<ViewStyle>, 'position' | 'bottom'>
   >;
   getFooterContainerHeight: (height: number) => void;
-  horizontalListImageHeight?: number;
-  horizontalListImageWidth?: number;
-  horizontalListImageSpace?: Range<5, 35>;
+  thumbnailListImageHeight?: number;
+  thumbnailListImageWidth?: number;
+  thumbnailListImageSpace?: Range<5, 35>;
 }
 
 export interface GlobalConstantType {

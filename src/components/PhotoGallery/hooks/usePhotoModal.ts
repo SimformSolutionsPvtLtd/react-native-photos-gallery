@@ -26,9 +26,9 @@ const usePhotoModal = ({
   item,
   onClose,
   animationCloseSpeed,
-  horizontalListImageWidth = Constants.horizontalListImageWidth,
-  horizontalListImageSpace = Constants.horizontalListImageSpace,
-  animatedHorizontalScrollSpeed = Constants.animatedHorizontalScrollSpeed,
+  thumbnailListImageWidth = Constants.thumbnailListImageWidth,
+  thumbnailListImageSpace = Constants.thumbnailListImageSpace,
+  animatedThumbnailScrollSpeed = Constants.animatedThumbnailScrollSpeed,
   animatedImageDelay = Constants.animatedImageDelay,
 }: Pick<
   PhotosModalProps,
@@ -38,11 +38,11 @@ const usePhotoModal = ({
   | 'index'
   | 'item'
   | 'onClose'
-  | 'horizontalListImageWidth'
+  | 'thumbnailListImageWidth'
   | 'animationCloseSpeed'
-  | 'animatedHorizontalScrollSpeed'
+  | 'animatedThumbnailScrollSpeed'
   | 'animatedImageDelay'
-  | 'horizontalListImageSpace'
+  | 'thumbnailListImageSpace'
 >) => {
   const [currentItem, setCurrentItem] = useState<ArrayData>({
     id: 0,
@@ -243,8 +243,8 @@ const usePhotoModal = ({
    */
   const handleScroll = () => {
     offsetY.value = withSpring(
-      index * (horizontalListImageWidth + horizontalListImageSpace * 2),
-      getScrollSpeedValues(animatedHorizontalScrollSpeed)
+      index * (thumbnailListImageWidth + thumbnailListImageSpace * 2),
+      getScrollSpeedValues(animatedThumbnailScrollSpeed)
     );
   };
 
