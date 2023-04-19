@@ -7,6 +7,8 @@ const TwoColumnExample = () => (
     data={data}
     animatedImageDelay={60}
     modalBackgroundStyle={styles.modalBackgroundStyle}
+    disableSwipeDown
+    disableZoom
   />
 );
 

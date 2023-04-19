@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     // Android pan handlers crash without this declaration:
     backgroundColor: Colors.transparent,
+    zIndex: 99,
   },
   headerView: {
     position: 'absolute',
@@ -31,6 +32,7 @@ const styles = StyleSheet.create({
     paddingRight: scale(25),
     alignItems: 'flex-end',
     width: scale(windowWidth),
+    zIndex: 999,
   },
   headerText: {
     fontSize: moderateScale(35),
@@ -76,6 +78,9 @@ const styles = StyleSheet.create({
   footerRenderItemImage: {
     height: '100%',
     width: '100%',
+  },
+  gestureHandlerRootViewStyle: {
+    flex: 1,
   },
 });
 

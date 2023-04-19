@@ -37,6 +37,11 @@ export interface PhotoGalleryProps
       | 'animatedImageDelay'
       | 'thumbnailListImageSpace'
       | 'modalBackgroundStyle'
+      | 'onZoomStart'
+      | 'onZoomEnd'
+      | 'maxZoomScale'
+      | 'disableSwipeDown'
+      | 'disableZoom'
     >,
     Pick<ListItemProps, 'networkLoaderProps' | 'networkImageProps'>,
     Pick<NetworkLoaderProps, 'renderNetworkLoader'> {
@@ -114,7 +119,15 @@ export interface PhotosModalProps
     >,
     Omit<ModalProps, 'visible'>,
     Pick<ListItemProps, 'networkLoaderProps' | 'networkImageProps'>,
-    Pick<NetworkLoaderProps, 'renderNetworkLoader'> {
+    Pick<NetworkLoaderProps, 'renderNetworkLoader'>,
+    Pick<
+      ZoomGesture,
+      | 'onZoomStart'
+      | 'onZoomEnd'
+      | 'maxZoomScale'
+      | 'disableSwipeDown'
+      | 'disableZoom'
+    > {
   visible: boolean;
   children: React.ReactElement;
   origin: Omit<MeasureValues, 'pageX' | 'pageY'>;
@@ -183,6 +196,9 @@ export interface GlobalConstantType {
   originExtraTop: number;
   originExtraWidth: number;
   originExtraHeight: number;
+  maxZoomScaleThreadSold: number;
+  minZoomScaleThreadSold: number;
+  minZoomScale: number;
 }
 
 export interface ScrollToIndexFailErrorType {
@@ -225,4 +241,12 @@ export interface RenderFooterItemProps
   renderItem: ArrayData;
   marginHorizontal: MarginHorizontal;
   renderItemStyle: RenderItemStyle;
+}
+
+export interface ZoomGesture extends Pick<PhotoModalHeaderProps, 'close'> {
+  onZoomStart?: () => void;
+  onZoomEnd?: () => void;
+  maxZoomScale?: Range<2, 7>;
+  disableZoom?: boolean;
+  disableSwipeDown?: boolean;
 }

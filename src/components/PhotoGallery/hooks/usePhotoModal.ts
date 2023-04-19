@@ -10,13 +10,18 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Constants } from '../../../constants';
 import {
+  STATUS_BAR_OFFSET,
   isAndroid,
   windowHeight,
   windowWidth,
-  STATUS_BAR_OFFSET,
 } from '../../../theme';
-import { useForwardRef } from '../hooks';
-import type { ArrayData, PhotosModalProps, TargetValues } from '../Types';
+import { useForwardRef, useZoomGestures } from '../hooks';
+import type {
+  ArrayData,
+  PhotosModalProps,
+  TargetValues,
+  ZoomGesture,
+} from '../Types';
 
 const usePhotoModal = ({
   origin,
@@ -30,6 +35,11 @@ const usePhotoModal = ({
   thumbnailListImageSpace = Constants.thumbnailListImageSpace,
   animatedThumbnailScrollSpeed = Constants.animatedThumbnailScrollSpeed,
   animatedImageDelay = Constants.animatedImageDelay,
+  onZoomStart,
+  onZoomEnd,
+  maxZoomScale,
+  disableZoom,
+  disableSwipeDown,
 }: Pick<
   PhotosModalProps,
   | 'origin'
@@ -43,7 +53,15 @@ const usePhotoModal = ({
   | 'animatedThumbnailScrollSpeed'
   | 'animatedImageDelay'
   | 'thumbnailListImageSpace'
->) => {
+> &
+  Pick<
+    ZoomGesture,
+    | 'onZoomStart'
+    | 'onZoomEnd'
+    | 'maxZoomScale'
+    | 'disableSwipeDown'
+    | 'disableZoom'
+  >) => {
   const [currentItem, setCurrentItem] = useState<ArrayData>({
     id: 0,
     source: 0,
@@ -206,6 +224,7 @@ const usePhotoModal = ({
     if (!isAndroid) {
       StatusBar.setHidden(false, 'fade');
     }
+    resetZoom();
     onClose();
     openVal.value = withTiming(0, {
       duration: animationCloseSpeed ?? 0,
@@ -216,12 +235,23 @@ const usePhotoModal = ({
     visible && open();
   }, [visible, open]);
 
+  const { resetZoom, gesture, onLayout, zoomStyle } = useZoomGestures({
+    close,
+    onZoomStart,
+    onZoomEnd,
+    maxZoomScale,
+    disableZoom,
+    disableSwipeDown,
+  });
+
   /**
    * Render the children(image) when it's changes
    */
   const renderChildren = useMemo(() => {
     return React.cloneElement(children, {
       source: currentItem.source,
+      style: [children.props.style, zoomStyle],
+      onLayout,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentItem]);
@@ -283,6 +313,8 @@ const usePhotoModal = ({
     setCurrentItem,
     setFooterHeight,
     offsetY,
+    target,
+    gesture,
   };
 };
 
