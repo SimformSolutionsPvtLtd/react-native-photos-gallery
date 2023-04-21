@@ -28,6 +28,8 @@ const styles = StyleSheet.create({
   },
   flatListStyle: {
     flexGrow: 0,
+    marginHorizontal: scale(8),
+    marginBottom: verticalScale(8),
   },
 });
 

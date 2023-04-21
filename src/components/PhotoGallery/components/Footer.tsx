@@ -26,24 +26,24 @@ const Footer = forwardRef<Animated.FlatList<ArrayData>, Props>(
       currentItem,
       setCurrentItem,
       animatedProps,
-      horizontalFlatListProps,
+      thumbnailFlatListProps,
       footerContainerProps,
       footerContainerStyle = {},
       getFooterContainerHeight,
-      horizontalListImageHeight,
-      horizontalListImageWidth,
-      horizontalListImageSpace = Constants.horizontalListImageSpace,
+      thumbnailListImageHeight,
+      thumbnailListImageWidth,
+      thumbnailListImageSpace = Constants.thumbnailListImageSpace,
     },
     ref
   ) => {
     const animatedFlatListRef =
       useForwardRef<Animated.FlatList<ArrayData>>(ref);
     const renderItemStyle = {
-      width: horizontalListImageWidth,
-      height: horizontalListImageHeight,
+      width: thumbnailListImageWidth,
+      height: thumbnailListImageHeight,
     };
     const marginHorizontal = {
-      marginHorizontal: scale(horizontalListImageSpace),
+      marginHorizontal: scale(thumbnailListImageSpace),
     };
     const onScrollToIndexFailed = (error: ScrollToIndexFailErrorType) => {
       //@ts-ignore
@@ -95,7 +95,7 @@ const Footer = forwardRef<Animated.FlatList<ArrayData>, Props>(
           )}
           onScrollToIndexFailed={onScrollToIndexFailed}
           {...{ animatedProps }}
-          {...horizontalFlatListProps}
+          {...thumbnailFlatListProps}
         />
       </Animated.View>
     );

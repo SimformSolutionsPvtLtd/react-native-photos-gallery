@@ -11,11 +11,11 @@ const PhotoGallery = ({
   data,
   scaledImageResizeMode = Constants.scaledImageResizeMode,
   animationCloseSpeed = Constants.animationCloseSpeed,
-  animatedHorizontalScrollSpeed = Constants.animatedHorizontalScrollSpeed,
+  animatedThumbnailScrollSpeed = Constants.animatedThumbnailScrollSpeed,
   animatedImageDelay = Constants.animatedImageDelay,
-  horizontalListImageHeight = Constants.horizontalListImageHeight,
-  horizontalListImageWidth = Constants.horizontalListImageWidth,
-  horizontalListImageSpace = Constants.horizontalListImageSpace,
+  thumbnailListImageHeight = Constants.thumbnailListImageHeight,
+  thumbnailListImageWidth = Constants.thumbnailListImageWidth,
+  thumbnailListImageSpace = Constants.thumbnailListImageSpace,
   renderHeader,
   onImageExpand,
   flatListProps,
@@ -26,6 +26,7 @@ const PhotoGallery = ({
   modalContentProps,
   modalContentImageProps,
   modalFooterProps,
+  modalBackgroundStyle,
   ...rest
 }: PhotoGalleryProps) => {
   const {
@@ -73,12 +74,13 @@ const PhotoGallery = ({
           modalContentProps,
           modalFooterProps,
           renderHeader,
-          horizontalListImageHeight,
-          horizontalListImageWidth,
-          horizontalListImageSpace,
+          thumbnailListImageHeight,
+          thumbnailListImageWidth,
+          thumbnailListImageSpace,
           animationCloseSpeed,
-          animatedHorizontalScrollSpeed,
+          animatedThumbnailScrollSpeed,
           animatedImageDelay,
+          modalBackgroundStyle,
         }}
         item={selectedItem}
         {...modalProps}>

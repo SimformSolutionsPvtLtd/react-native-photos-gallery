@@ -20,12 +20,13 @@ const PhotosModal = ({
   modalHeaderProps = {},
   modalFooterProps = {},
   modalContentProps = {},
-  horizontalListImageHeight,
-  horizontalListImageWidth,
-  horizontalListImageSpace,
+  thumbnailListImageHeight,
+  thumbnailListImageWidth,
+  thumbnailListImageSpace,
   animationCloseSpeed,
-  animatedHorizontalScrollSpeed,
+  animatedThumbnailScrollSpeed,
   animatedImageDelay,
+  modalBackgroundStyle,
   ...rest
 }: PhotosModalProps) => {
   const {
@@ -47,24 +48,21 @@ const PhotosModal = ({
     onClose,
     index,
     item,
-    horizontalListImageWidth,
-    horizontalListImageSpace,
+    thumbnailListImageWidth,
+    thumbnailListImageSpace,
     animationCloseSpeed,
-    animatedHorizontalScrollSpeed,
+    animatedThumbnailScrollSpeed,
     animatedImageDelay,
   });
   const { containerProps, containerStyle } = modalHeaderProps;
-  const {
-    horizontalFlatListProps,
-    footerContainerProps,
-    footerContainerStyle,
-  } = modalFooterProps;
+  const { thumbnailFlatListProps, footerContainerProps, footerContainerStyle } =
+    modalFooterProps;
   const { contentStyle = {}, contentProps } = modalContentProps;
 
   return (
     <Modal visible={visible} transparent {...rest}>
       <Animated.View
-        style={[styles.backgroundView, boxOpacityStyle]}
+        style={[styles.backgroundView, boxOpacityStyle, modalBackgroundStyle]}
         {...modalBackgroundProps}
       />
       <Animated.View
@@ -90,11 +88,11 @@ const PhotosModal = ({
           currentItem,
           setCurrentItem,
           boxOpacityStyle,
-          horizontalFlatListProps,
+          thumbnailFlatListProps,
           footerContainerProps,
-          horizontalListImageHeight,
-          horizontalListImageWidth,
-          horizontalListImageSpace,
+          thumbnailListImageHeight,
+          thumbnailListImageWidth,
+          thumbnailListImageSpace,
           footerContainerStyle,
         }}
         getFooterContainerHeight={setFooterHeight}

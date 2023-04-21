@@ -7,22 +7,22 @@ const GlobalConstant: Required<
   Pick<
     PhotoGalleryProps,
     | 'scaledImageResizeMode'
-    | 'animatedHorizontalScrollSpeed'
+    | 'animatedThumbnailScrollSpeed'
     | 'animatedImageDelay'
     | 'animationCloseSpeed'
-    | 'horizontalListImageHeight'
-    | 'horizontalListImageSpace'
-    | 'horizontalListImageWidth'
+    | 'thumbnailListImageHeight'
+    | 'thumbnailListImageSpace'
+    | 'thumbnailListImageWidth'
   >
 > &
   GlobalConstantType = {
   scaledImageResizeMode: 'cover',
   animationCloseSpeed: 350,
-  animatedHorizontalScrollSpeed: 30,
+  animatedThumbnailScrollSpeed: 30,
   animatedImageDelay: 90,
-  horizontalListImageHeight: 120,
-  horizontalListImageWidth: 120,
-  horizontalListImageSpace: 10,
+  thumbnailListImageHeight: 120,
+  thumbnailListImageWidth: 120,
+  thumbnailListImageSpace: 10,
   animationCloseSpeedMargin: 150,
   originExtraLeft: 15,
   originExtraTop: 5,
