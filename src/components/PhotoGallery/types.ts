@@ -1,4 +1,5 @@
 import type {
+  ActivityIndicatorProps,
   FlatListProps,
   ImageProps,
   ImageResizeMode,
@@ -13,6 +14,11 @@ import type { AnimateProps, AnimateStyle } from 'react-native-reanimated';
 export interface ArrayData {
   id: number;
   source: ImageSourcePropType;
+}
+
+export interface NetworkData {
+  loading?: boolean;
+  error?: boolean;
 }
 
 export interface PhotoGalleryProps
@@ -31,7 +37,9 @@ export interface PhotoGalleryProps
       | 'animatedImageDelay'
       | 'thumbnailListImageSpace'
       | 'modalBackgroundStyle'
-    > {
+    >,
+    Pick<ListItemProps, 'networkLoaderProps' | 'networkImageProps'>,
+    Pick<NetworkLoaderProps, 'renderNetworkLoader'> {
   data: Array<ArrayData>;
   scaledImageResizeMode?: ImageResizeMode;
   flatListProps?: Omit<FlatListProps<ArrayData>, 'data' | 'renderItem'>;
@@ -39,7 +47,7 @@ export interface PhotoGalleryProps
     ListItemProps,
     'containerStyle' | 'imageContainerStyle' | 'imageProps'
   >;
-  modalContentImageProps?: Omit<ImageProps, 'source'>;
+  modalContentImageProps?: AnimateProps<ImageProps>;
   onImageExpand?: ({ visible }: Pick<PhotosModalProps, 'visible'>) => void;
   modalProps?: Omit<ModalProps, 'visible'>;
 }
@@ -53,12 +61,15 @@ export interface MeasureValues {
   pageY: number;
 }
 
-export interface ListItemProps {
+export interface ListItemProps
+  extends Pick<NetworkLoaderProps, 'renderNetworkLoader'> {
   item: ArrayData;
   onPress: (args: MeasureValues) => void;
   containerStyle?: StyleProp<ViewStyle>;
   imageContainerStyle?: StyleProp<AnimateStyle<ViewStyle>>;
   imageProps?: Omit<AnimateProps<ImageProps>, 'source' | 'defaultSource'>;
+  networkLoaderProps?: ActivityIndicatorProps;
+  networkImageProps?: Partial<ImageProps>;
 }
 
 export interface TargetValues extends Pick<MeasureValues, 'x' | 'y'> {
@@ -101,7 +112,9 @@ export interface PhotosModalProps
       | 'thumbnailListImageWidth'
       | 'thumbnailListImageSpace'
     >,
-    Omit<ModalProps, 'visible'> {
+    Omit<ModalProps, 'visible'>,
+    Pick<ListItemProps, 'networkLoaderProps' | 'networkImageProps'>,
+    Pick<NetworkLoaderProps, 'renderNetworkLoader'> {
   visible: boolean;
   children: React.ReactElement;
   origin: Omit<MeasureValues, 'pageX' | 'pageY'>;
@@ -176,4 +189,40 @@ export interface ScrollToIndexFailErrorType {
   index: number;
   highestMeasuredFrameIndex: number;
   averageItemLength: number;
+}
+
+export interface NetworkLoaderProps extends ActivityIndicatorProps, ViewProps {
+  renderNetworkLoader?: () => React.ReactElement;
+}
+
+export interface AnimatedImageProps
+  extends Pick<
+      ListItemProps,
+      | 'item'
+      | 'networkImageProps'
+      | 'networkLoaderProps'
+      | 'renderNetworkLoader'
+    >,
+    Omit<AnimateProps<ImageProps>, 'source' | 'defaultSource'> {
+  enableNetworkHandling?: boolean;
+}
+
+type RenderItemStyle = {
+  width: number | undefined;
+  height: number | undefined;
+};
+
+type MarginHorizontal = {
+  marginHorizontal: number;
+};
+
+export interface RenderFooterItemProps
+  extends Pick<
+      PhotosModalProps,
+      'renderNetworkLoader' | 'networkImageProps' | 'networkLoaderProps'
+    >,
+    Pick<PhotoModalFooterProps, 'currentItem' | 'setCurrentItem'> {
+  renderItem: ArrayData;
+  marginHorizontal: MarginHorizontal;
+  renderItemStyle: RenderItemStyle;
 }

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { TouchableOpacity } from 'react-native';
 import Animated from 'react-native-reanimated';
 import type { ListItemProps } from '../types';
+import AnimatedImage from './AnimatedImage';
 import styles from './ListItemStyle';
 
 const ListItem = ({
@@ -10,6 +11,9 @@ const ListItem = ({
   containerStyle = {},
   imageContainerStyle = {},
   imageProps,
+  networkLoaderProps,
+  renderNetworkLoader,
+  networkImageProps,
 }: ListItemProps) => {
   const animatedViewRef = useRef<Animated.View>(null);
   const onPressWithMeasure = () => {
@@ -25,9 +29,14 @@ const ListItem = ({
       <Animated.View
         ref={animatedViewRef}
         style={[styles.itemView, imageContainerStyle]}>
-        <Animated.Image
-          source={item.source}
-          style={styles.itemImage}
+        <AnimatedImage
+          enableNetworkHandling
+          {...{
+            item,
+            networkImageProps,
+            networkLoaderProps,
+            renderNetworkLoader,
+          }}
           {...imageProps}
         />
       </Animated.View>

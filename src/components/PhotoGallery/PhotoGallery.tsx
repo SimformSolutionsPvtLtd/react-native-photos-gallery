@@ -1,11 +1,11 @@
-import { FlatList, Image } from 'react-native';
 import React, { useMemo } from 'react';
+import { FlatList } from 'react-native';
 import Animated from 'react-native-reanimated';
-import type { MeasureValues, PhotoGalleryProps } from './types';
-import { ListItem, PhotosModal } from './components';
+import { Constants } from '../../constants';
+import { AnimatedImage, ListItem, PhotosModal } from './components';
 import { usePhotoGallery } from './hooks';
 import styles from './styles';
-import { Constants } from '../../constants';
+import type { MeasureValues, PhotoGalleryProps } from './types';
 
 const PhotoGallery = ({
   data,
@@ -27,6 +27,9 @@ const PhotoGallery = ({
   modalContentImageProps,
   modalFooterProps,
   modalBackgroundStyle,
+  networkLoaderProps,
+  renderNetworkLoader,
+  networkImageProps,
   ...rest
 }: PhotoGalleryProps) => {
   const {
@@ -55,6 +58,10 @@ const PhotoGallery = ({
               containerStyle,
               imageContainerStyle,
               imageProps,
+              networkLoaderProps,
+              renderNetworkLoader,
+              networkImageProps,
+              index,
             }}
           />
         )}
@@ -64,10 +71,10 @@ const PhotoGallery = ({
       />
       <PhotosModal
         {...{
+          data,
           visible,
           origin,
           onClose,
-          data,
           index: indexValue,
           modalBackgroundProps,
           modalHeaderProps,
@@ -81,13 +88,18 @@ const PhotoGallery = ({
           animatedThumbnailScrollSpeed,
           animatedImageDelay,
           modalBackgroundStyle,
+          networkLoaderProps,
+          renderNetworkLoader,
+          networkImageProps,
         }}
         item={selectedItem}
         {...modalProps}>
-        <Image
+        <AnimatedImage
+          enableNetworkHandling
+          item={selectedItem}
           style={styles.imageStyle}
-          source={selectedItem.source}
           resizeMode={scaledImageResizeMode}
+          {...{ networkLoaderProps, renderNetworkLoader, networkImageProps }}
           {...modalContentImageProps}
         />
       </PhotosModal>

@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import { Image, TouchableOpacity } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { Constants } from '../../../constants';
 import { scale } from '../../../theme';
@@ -12,8 +11,12 @@ import type {
   ScrollToIndexFailErrorType,
 } from '../types';
 import styles from './PhotoModalStyle';
+import RenderFooterItem from './RenderFooterItem';
 
-type Props = Pick<PhotosModalProps, 'data'> &
+type Props = Pick<
+  PhotosModalProps,
+  'data' | 'networkLoaderProps' | 'networkImageProps' | 'renderNetworkLoader'
+> &
   Pick<PhotoModalHeaderProps, 'boxOpacityStyle'> &
   PhotoModalFooterProps;
 
@@ -28,6 +31,9 @@ const Footer = forwardRef<Animated.FlatList<ArrayData>, Props>(
       animatedProps,
       thumbnailFlatListProps,
       footerContainerProps,
+      networkLoaderProps,
+      renderNetworkLoader,
+      networkImageProps,
       footerContainerStyle = {},
       getFooterContainerHeight,
       thumbnailListImageHeight,
@@ -75,23 +81,20 @@ const Footer = forwardRef<Animated.FlatList<ArrayData>, Props>(
           ref={animatedFlatListRef}
           horizontal
           onScroll={handleScroll}
+          showsHorizontalScrollIndicator={false}
           renderItem={({ item: renderItem }) => (
-            <TouchableOpacity
-              style={[
-                styles.footerRenderItemTouchableOpacity,
-                currentItem === renderItem
-                  ? styles.footerActiveItem
-                  : styles.footerInActiveItem,
+            <RenderFooterItem
+              {...{
+                renderNetworkLoader,
+                networkLoaderProps,
+                networkImageProps,
+                currentItem,
+                renderItem,
                 marginHorizontal,
                 renderItemStyle,
-              ]}
-              activeOpacity={0.9}
-              onPress={() => setCurrentItem(renderItem)}>
-              <Image
-                source={renderItem?.source}
-                style={styles.footerRenderItemImage}
-              />
-            </TouchableOpacity>
+                setCurrentItem,
+              }}
+            />
           )}
           onScrollToIndexFailed={onScrollToIndexFailed}
           {...{ animatedProps }}
