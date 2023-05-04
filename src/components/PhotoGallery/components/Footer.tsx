@@ -9,7 +9,7 @@ import type {
   PhotoModalHeaderProps,
   PhotosModalProps,
   ScrollToIndexFailErrorType,
-} from '../types';
+} from '../Types';
 import styles from './PhotoModalStyle';
 import RenderFooterItem from './RenderFooterItem';
 

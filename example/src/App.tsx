@@ -1,13 +1,32 @@
 import React, { useState } from 'react';
 import { FlatList, SafeAreaView, Text, TouchableOpacity } from 'react-native';
 import styles from './AppStyles';
+import type { ItemData, ListItem } from './Types';
 import { listData } from './constant';
 import {
   HorizontalListExample,
   OneColumnExample,
   TwoColumnExample,
 } from './examples';
-import type { ListItem } from './types';
+
+const ListItem = ({ item, data, setData }: ListItem) => (
+  <TouchableOpacity
+    style={[
+      styles.touchableStyle,
+      item.isSelected && styles.activeTouchableStyle,
+    ]}
+    onPress={() => {
+      const newData = data.map((oldData: ItemData) => ({
+        ...oldData,
+        isSelected: oldData.id === item.id,
+      }));
+      setData(newData);
+    }}>
+    <Text style={[styles.textStyle, item.isSelected && styles.activeTextStyle]}>
+      {item.title}
+    </Text>
+  </TouchableOpacity>
+);
 
 const App = () => {
   const [data, setData] = useState(listData);
@@ -26,26 +45,6 @@ const App = () => {
     }
   };
 
-  const ListItem = ({ item }: ListItem) => (
-    <TouchableOpacity
-      style={[
-        styles.touchableStyle,
-        item.isSelected && styles.activeTouchableStyle,
-      ]}
-      onPress={() => {
-        const newData = data.map(oldData => ({
-          ...oldData,
-          isSelected: oldData.id === item.id,
-        }));
-        setData(newData);
-      }}>
-      <Text
-        style={[styles.textStyle, item.isSelected && styles.activeTextStyle]}>
-        {item.title}
-      </Text>
-    </TouchableOpacity>
-  );
-
   return (
     <SafeAreaView style={styles.screen}>
       <FlatList
@@ -53,7 +52,7 @@ const App = () => {
         style={styles.flatListStyle}
         horizontal
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => <ListItem {...{ item }} />}
+        renderItem={({ item }) => <ListItem {...{ item, setData, data }} />}
         keyExtractor={item => item.id.toString()}
       />
       {renderExample()}

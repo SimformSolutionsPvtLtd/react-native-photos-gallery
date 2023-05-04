@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react';
 import Animated from 'react-native-reanimated';
-import styles from '../styles';
-import type { AnimatedImageProps } from '../types';
+import styles from '../Styles';
+import type { AnimatedImageProps } from '../Types';
 import NetworkImage from './NetworkImage';
 import NetworkLoader from './NetworkLoader';
 

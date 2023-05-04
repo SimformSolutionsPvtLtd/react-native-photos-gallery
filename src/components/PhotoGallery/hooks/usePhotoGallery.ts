@@ -7,7 +7,7 @@ import {
   withTiming,
 } from 'react-native-reanimated';
 import { Constants } from '../../../constants';
-import type { ArrayData, MeasureValues, PhotoGalleryProps } from '../types';
+import type { ArrayData, MeasureValues, PhotoGalleryProps } from '../Types';
 
 const usePhotoGallery = ({
   animationCloseSpeed,
