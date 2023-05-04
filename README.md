@@ -15,9 +15,6 @@ Our user-friendly and highly customizable library ensures a seamless experience.
 | ![alt Default](./assets/oneColumnList.gif) | ![alt Modal](./assets/twoColumnList.gif) | ![alt Modal](./assets/horizontalList.gif) |
 
 
-> Note: Find assets image from [here](./example/src/assets/images)
-
-
 ## Quick Access
 
 - [Installation](#installation)
@@ -153,7 +150,7 @@ const styles = StyleSheet.create({
 
 | Props                        |  Default  |                  Type                   | Description                                                                                            |
 | ---------------------------- | :-------: | :-------------------------------------: | ------------------------------------------------------------------------------------------------------ |
-| **data**                     |     -     |         [ArrayData](#arraydata)         | Data to render images                                                                                  |
+| **data**                     |     -     |         [Data](#sample-data)         | Data to render images                                                                                  |
 | scaledImageResizeMode        | `'cover'` |            `ImageResizeMode`            | Image size mode                                                                                        |
 | animationCloseSpeed          |    350    |            `Range<200, 500>`            | Animation close speed between 200 to 500                                                               |
 | animatedThumbnailScrollSpeed |    30     |             10 \| 20 \| 30              | Thumbnail List scroll speed                                                                            |
