@@ -6,4 +6,6 @@ export interface ItemData {
 
 export interface ListItem {
   item: ItemData;
+  data: Array<ItemData>;
+  setData: React.Dispatch<React.SetStateAction<Array<ItemData>>>;
 }

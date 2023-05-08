@@ -1,5 +1,5 @@
-import { HorizontalListExample } from './horizontalListExample';
-import { OneColumnExample } from './oneColumnExample';
-import { TwoColumnExample } from './twoColumnExample';
+import { HorizontalListExample } from './HorizontalListExample';
+import { OneColumnExample } from './OneColumnExample';
+import { TwoColumnExample } from './TwoColumnExample';
 
 export { HorizontalListExample, OneColumnExample, TwoColumnExample };

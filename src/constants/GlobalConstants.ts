@@ -1,7 +1,7 @@
 import type {
   PhotoGalleryProps,
   GlobalConstantType,
-} from '../components/PhotoGallery/types';
+} from '../components/PhotoGallery/Types';
 
 const GlobalConstant: Required<
   Pick<

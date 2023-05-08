@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { TouchableOpacity } from 'react-native';
-import type { RenderFooterItemProps } from '../types';
+import type { RenderFooterItemProps } from '../Types';
 import AnimatedImage from './AnimatedImage';
 import styles from './PhotoModalStyle';
 

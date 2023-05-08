@@ -16,7 +16,7 @@ import {
   STATUS_BAR_OFFSET,
 } from '../../../theme';
 import { useForwardRef } from '../hooks';
-import type { ArrayData, PhotosModalProps, TargetValues } from '../types';
+import type { ArrayData, PhotosModalProps, TargetValues } from '../Types';
 
 const usePhotoModal = ({
   origin,

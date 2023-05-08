@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { usePhotoModal } from '../hooks';
-import type { PhotosModalProps } from '../types';
+import type { PhotosModalProps } from '../Types';
 import Footer from './Footer';
 import Header from './Header';
 import styles from './PhotoModalStyle';

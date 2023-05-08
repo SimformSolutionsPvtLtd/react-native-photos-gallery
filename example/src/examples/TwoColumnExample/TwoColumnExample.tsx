@@ -1,13 +1,13 @@
 import { PhotoGallery } from 'react-native-photos-gallery';
 import { data } from '../../constant';
-import styles from '../styles';
+import styles from '../Styles';
 
-const OneColumnExample = () => (
+const TwoColumnExample = () => (
   <PhotoGallery
     data={data}
-    flatListProps={{ numColumns: 1 }}
+    animatedImageDelay={60}
     modalBackgroundStyle={styles.modalBackgroundStyle}
   />
 );
 
-export default OneColumnExample;
+export default TwoColumnExample;

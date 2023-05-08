@@ -1,7 +1,7 @@
 import { PhotoGallery } from 'react-native-photos-gallery';
 import { data } from '../../constant';
 import styles from './HorizontalListExampleStyle';
-import style from '../styles';
+import style from '../Styles';
 
 const HorizontalListExample = () => (
   <PhotoGallery

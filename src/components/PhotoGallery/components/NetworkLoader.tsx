@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import styles from './NetworkLoaderStyle';
-import type { NetworkLoaderProps } from '../types';
+import type { NetworkLoaderProps } from '../Types';
 
 const NetworkLoader = ({
   renderNetworkLoader,

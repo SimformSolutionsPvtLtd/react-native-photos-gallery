@@ -1,7 +1,7 @@
 {
   "name": "react-native-photos-gallery",
   "version": "0.0.1",
-  "description": "A React Native component to provide animated photo gallery",
+  "description": "A React Native animated custom photo gallery component",
   "main": "lib/index",
   "types": "lib/index.d.ts",
   "contributors": [],
@@ -15,7 +15,12 @@
     "react",
     "react-native",
     "typescript",
-    "rn"
+    "rn",
+    "photo-gallery",
+    "gallery",
+    "photo",
+    "reanimated",
+    "component"
   ],
   "license": "MIT",
   "files": [

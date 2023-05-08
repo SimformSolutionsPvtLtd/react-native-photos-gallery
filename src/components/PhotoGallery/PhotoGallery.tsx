@@ -4,8 +4,8 @@ import Animated from 'react-native-reanimated';
 import { Constants } from '../../constants';
 import { AnimatedImage, ListItem, PhotosModal } from './components';
 import { usePhotoGallery } from './hooks';
-import styles from './styles';
-import type { MeasureValues, PhotoGalleryProps } from './types';
+import styles from './Styles';
+import type { MeasureValues, PhotoGalleryProps } from './Types';
 
 const PhotoGallery = ({
   data,
