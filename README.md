@@ -1,19 +1,18 @@
+![PhotosGellary - Simform](./assets/reactNativePhotosGalleryBanner.gif)
+
 # react-native-photos-gallery
 
-## [![npm version](https://img.shields.io/badge/npm%20package-0.0.1-orange)](https://www.npmjs.org/package/react-native-country-code-select) [![Android](https://img.shields.io/badge/Platform-Android-green?logo=android)](https://www.android.com) [![iOS](https://img.shields.io/badge/Platform-iOS-green?logo=apple)](https://developer.apple.com/ios) [![MIT](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
-
+## [![npm version](https://img.shields.io/badge/npm%20package-0.0.1-orange)](https://www.npmjs.org/package/react-native-photos-gallery) [![Android](https://img.shields.io/badge/Platform-Android-green?logo=android)](https://www.android.com) [![iOS](https://img.shields.io/badge/Platform-iOS-green?logo=apple)](https://developer.apple.com/ios) [![MIT](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
 
 Introducing a cutting-edge Photo Gallery library built with pure JavaScript and React Native Reanimated, designed to enhance your photo gallery experience by allowing you to effortlessly open and view selected photos.
 
 Our user-friendly and highly customizable library ensures a seamless experience. Whether you're an Android or iOS user, our library is compatible with both platforms, guaranteeing optimal performance.
-
 
 ## 🎬 Preview
 
 | OneColumn List                             | TwoColumn List                           | Horizontal List                           |
 | ------------------------------------------ | ---------------------------------------- | ----------------------------------------- |
 | ![alt Default](./assets/oneColumnList.gif) | ![alt Modal](./assets/twoColumnList.gif) | ![alt Modal](./assets/horizontalList.gif) |
-
 
 ## Quick Access
 
@@ -24,10 +23,12 @@ Our user-friendly and highly customizable library ensures a seamless experience.
 - [License](#license)
 
 ## Getting Started 🔧
+
 Here's how to get started with react-native-photos-gallery in your React Native project:
 
 ### Installation
-##### 1. Install the package:
+
+##### 1. Install the package
 
 Using `npm`:
 
@@ -61,7 +62,6 @@ module.exports = {
 
 ##### Know more about [react-native-reanimated](https://www.npmjs.com/package/react-native-reanimated)
 
-
 ## Usage
 
 #### Sample Data
@@ -75,7 +75,7 @@ const data = [
 ];
 ```
 
-#### Basic Example 
+#### Basic Example
 
 ```jsx
 import React from 'react';
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
 
 | Props                        |  Default  |                  Type                   | Description                                                                                            |
 | ---------------------------- | :-------: | :-------------------------------------: | ------------------------------------------------------------------------------------------------------ |
-| **data**                     |     -     |         [Data](#sample-data)         | Data to render images                                                                                  |
+| **data**                     |     -     |          [Data](#sample-data)           | Data to render images                                                                                  |
 | scaledImageResizeMode        | `'cover'` |            `ImageResizeMode`            | Image size mode                                                                                        |
 | animationCloseSpeed          |    350    |            `Range<200, 500>`            | Animation close speed between 200 to 500                                                               |
 | animatedThumbnailScrollSpeed |    30     |             10 \| 20 \| 30              | Thumbnail List scroll speed                                                                            |
@@ -158,9 +158,9 @@ const styles = StyleSheet.create({
 | thumbnailListImageHeight     |    120    |                 number                  | Height of thumbnail list image                                                                         |
 | thumbnailListImageWidth      |    120    |                 number                  | Width of thumbnail list image                                                                          |
 | thumbnailListImageSpace      |    10     |                 number                  | Space between thumbnail list images                                                                    |
-| renderHeader                 |     -     |                function                 | Custom header content instead of default child content and it provide `close()` as an argument                           |
-| onImageExpand                |     -     |                function                 | Function to call when image expanded and it provide `{visible}` as an argument                |
-| renderNetworkLoader          |     -     |                function                 | Custom network loader instead of default loader                                                      |
+| renderHeader                 |     -     |                function                 | Custom header content instead of default child content and it provide `close()` as an argument         |
+| onImageExpand                |     -     |                function                 | Function to call when image expanded and it provide `{visible}` as an argument                         |
+| renderNetworkLoader          |     -     |                function                 | Custom network loader instead of default loader                                                        |
 | flatListProps                |     -     | FlatListProps<[ArrayData](#arraydata)>  | Provide <a href="https://reactnative.dev/docs/flatlist#props">flatlist props</a>                       |
 | listItemProps                |     -     |     [ListItemProps](#listitemprops)     | List item props contain `containerStyle`, `imageContainerStyle` and `imageProps`                       |
 | modalProps                   |     -     |               ModalProps                | Provide <a href="https://reactnative.dev/docs/modal#props">Modal props</a>                             |
@@ -205,11 +205,11 @@ const styles = StyleSheet.create({
 
 ##### ModalFooterProps
 
-| Props                  | Default |           Type            | Description               |
-| ---------------------- | :-----: | :-----------------------: | ------------------------- |
+| Props                  | Default |           Type            | Description              |
+| ---------------------- | :-----: | :-----------------------: | ------------------------ |
 | thumbnailFlatListProps |    -    |   `FlatListProps<any>`    | Thumbnail flatlist props |
-| footerContainerProps   |    -    | `AnimateProps<ViewProps>` | Container props           |
-| footerContainerStyle   |    -    | `AnimateStyle<ViewStyle>` | Container style           |
+| footerContainerProps   |    -    | `AnimateProps<ViewProps>` | Container props          |
+| footerContainerStyle   |    -    | `AnimateStyle<ViewStyle>` | Container style          |
 
 ##### Know more about [ViewProps](https://reactnative.dev/docs/view#props), [ViewStyle](https://reactnative.dev/docs/view-style-props), [FlatListProps](https://reactnative.dev/docs/flatlist#props), [ModalProps](https://reactnative.dev/docs/modal#props), [ImageProps](https://reactnative.dev/docs/image#props)
 
