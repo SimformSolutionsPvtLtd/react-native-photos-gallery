@@ -148,30 +148,30 @@ const styles = StyleSheet.create({
 
 ## Properties
 
-| Props                        |  Default  |                  Type                   | Description                                                                                            |
-| ---------------------------- | :-------: | :-------------------------------------: | ------------------------------------------------------------------------------------------------------ |
-| **data**                     |     -     |          [Data](#sample-data)           | Data to render images                                                                                  |
-| scaledImageResizeMode        | `'cover'` |            `ImageResizeMode`            | Image size mode                                                                                        |
-| animationCloseSpeed          |    350    |            `Range<200, 500>`            | Animation close speed between 200 to 500                                                               |
-| animatedThumbnailScrollSpeed |    30     |             10 \| 20 \| 30              | Thumbnail List scroll speed                                                                            |
-| animatedImageDelay           |    90     |          20 \| 30 \| 60 \| 90           | Animated image delay                                                                                   |
-| thumbnailListImageHeight     |    120    |                 number                  | Height of thumbnail list image                                                                         |
-| thumbnailListImageWidth      |    120    |                 number                  | Width of thumbnail list image                                                                          |
-| thumbnailListImageSpace      |    10     |                 number                  | Space between thumbnail list images                                                                    |
-| renderHeader                 |     -     |                function                 | Custom header content instead of default child content and it provide `close()` as an argument         |
-| onImageExpand                |     -     |                function                 | Function to call when image expanded and it provide `{visible}` as an argument                         |
-| renderNetworkLoader          |     -     |                function                 | Custom network loader instead of default loader                                                        |
-| flatListProps                |     -     | FlatListProps<[ArrayData](#arraydata)>  | Provide <a href="https://reactnative.dev/docs/flatlist#props">flatlist props</a>                       |
-| listItemProps                |     -     |     [ListItemProps](#listitemprops)     | List item props contain `containerStyle`, `imageContainerStyle` and `imageProps`                       |
-| modalProps                   |     -     |               ModalProps                | Provide <a href="https://reactnative.dev/docs/modal#props">Modal props</a>                             |
-| modalBackgroundProps         |     -     |        `AnimateProps<ViewProps>`        | Provide animated view props                                                                            |
-| modalBackgroundStyle         |     -     |        `AnimateStyle<ViewStyle>`        | Modal background style                                                                                 |
-| modalHeaderProps             |     -     |  [ModalHeaderProps](#modalheaderprops)  | Modal header props contain `containerProps` and `containerStyle`                                       |
-| modalContentProps            |     -     | [ModalContentProps](#modalcontentprops) | Modal content props contain `contentProps` and `contentStyle`                                          |
-| modalContentImageProps       |     -     |       `AnimateProps<ImageProps>`        | Modal content <a href="https://reactnative.dev/docs/image#props">Image props</a>                       |
-| modalFooterProps             |     -     |  [ModalFooterProps](#modalfooterprops)  | Modal footer props contain `thumbnailFlatListProps`, `footerContainerProps` and `footerContainerStyle` |
-| networkLoaderProps           |     -     |        `ActivityIndicatorProps`         | Provide <a href="https://reactnative.dev/docs/activityindicator#props">ActivityIndicator props</a>     |
-| networkImageProps            |     -     |              `ImageProps`               | Provide <a href="https://reactnative.dev/docs/image#props">Image props</a>                             |
+| Props                        |  Default  |                   Type                   | Description                                                                                            |
+| ---------------------------- | :-------: | :--------------------------------------: | ------------------------------------------------------------------------------------------------------ |
+| **data**                     |     -     |           [Data](#sample-data)           | Data to render images                                                                                  |
+| scaledImageResizeMode        | `'cover'` |            `ImageResizeMode`             | Image size mode                                                                                        |
+| animationCloseSpeed          |    350    |            `Range<200, 500>`             | Animation close speed between 200 to 500                                                               |
+| animatedThumbnailScrollSpeed |    30     |              10 \| 20 \| 30              | Thumbnail List scroll speed                                                                            |
+| animatedImageDelay           |    90     |           20 \| 30 \| 60 \| 90           | Animated image delay                                                                                   |
+| thumbnailListImageHeight     |    120    |                  number                  | Height of thumbnail list image                                                                         |
+| thumbnailListImageWidth      |    120    |                  number                  | Width of thumbnail list image                                                                          |
+| thumbnailListImageSpace      |    10     |                  number                  | Space between thumbnail list images                                                                    |
+| renderHeader                 |     -     |                 function                 | Custom header content instead of default child content and it provide `close()` as an argument         |
+| onImageExpand                |     -     |                 function                 | Function to call when image expanded and it provide `{visible}` as an argument                         |
+| renderNetworkLoader          |     -     |                 function                 | Custom network loader instead of default loader                                                        |
+| flatListProps                |     -     | FlatListProps<[ArrayData](#sample-data)> | Provide <a href="https://reactnative.dev/docs/flatlist#props">flatlist props</a>                       |
+| listItemProps                |     -     |     [ListItemProps](#listitemprops)      | List item props contain `containerStyle`, `imageContainerStyle` and `imageProps`                       |
+| modalProps                   |     -     |                ModalProps                | Provide <a href="https://reactnative.dev/docs/modal#props">Modal props</a>                             |
+| modalBackgroundProps         |     -     |        `AnimateProps<ViewProps>`         | Provide animated view props                                                                            |
+| modalBackgroundStyle         |     -     |        `AnimateStyle<ViewStyle>`         | Modal background style                                                                                 |
+| modalHeaderProps             |     -     |  [ModalHeaderProps](#modalheaderprops)   | Modal header props contain `containerProps` and `containerStyle`                                       |
+| modalContentProps            |     -     | [ModalContentProps](#modalcontentprops)  | Modal content props contain `contentProps` and `contentStyle`                                          |
+| modalContentImageProps       |     -     |        `AnimateProps<ImageProps>`        | Modal content <a href="https://reactnative.dev/docs/image#props">Image props</a>                       |
+| modalFooterProps             |     -     |  [ModalFooterProps](#modalfooterprops)   | Modal footer props contain `thumbnailFlatListProps`, `footerContainerProps` and `footerContainerStyle` |
+| networkLoaderProps           |     -     |         `ActivityIndicatorProps`         | Provide <a href="https://reactnative.dev/docs/activityindicator#props">ActivityIndicator props</a>     |
+| networkImageProps            |     -     |               `ImageProps`               | Provide <a href="https://reactnative.dev/docs/image#props">Image props</a>                             |
 
 ---
 
