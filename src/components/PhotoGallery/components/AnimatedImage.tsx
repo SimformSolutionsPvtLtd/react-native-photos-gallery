@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import Animated from 'react-native-reanimated';
 import styles from '../Styles';
 import type { AnimatedImageProps } from '../Types';
@@ -39,7 +39,4 @@ const AnimatedImage = ({
   );
 };
 
-export default memo(
-  AnimatedImage,
-  (prevProps, nextProps) => prevProps.item.source !== nextProps.item.source
-);
+export default AnimatedImage;
