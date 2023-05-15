@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, ImageProps } from 'react-native';
 import { images } from '../../../assets';
-import styles from './NetworkImageStyle';
+import { NetworkImageStyle as styles } from './styles';
 
 const NetworkImage = ({ ...rest }: Partial<ImageProps>) => {
   return (
