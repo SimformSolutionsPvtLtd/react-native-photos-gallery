@@ -7,7 +7,7 @@ import {
   Colors,
   windowHeight,
   windowWidth,
-} from '../../../theme';
+} from '../../../../theme';
 
 const styles = StyleSheet.create({
   backgroundView: {

@@ -5,7 +5,7 @@ import { usePhotoModal } from '../hooks';
 import type { PhotosModalProps } from '../Types';
 import Footer from './Footer';
 import Header from './Header';
-import styles from './PhotoModalStyle';
+import { PhotoModalStyle as styles } from './styles';
 
 const PhotosModal = ({
   visible = false,

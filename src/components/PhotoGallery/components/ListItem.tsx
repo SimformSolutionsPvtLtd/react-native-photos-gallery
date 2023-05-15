@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import Animated from 'react-native-reanimated';
 import type { ListItemProps } from '../Types';
 import AnimatedImage from './AnimatedImage';
-import styles from './ListItemStyle';
+import { ListItemStyle as styles } from './styles';
 
 const ListItem = ({
   item,

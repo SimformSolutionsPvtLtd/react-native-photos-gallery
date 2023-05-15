@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { TouchableOpacity } from 'react-native';
 import type { RenderFooterItemProps } from '../Types';
 import AnimatedImage from './AnimatedImage';
-import styles from './PhotoModalStyle';
+import { PhotoModalStyle as styles } from './styles';
 
 const RenderFooterItem = ({
   renderNetworkLoader,

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { moderateScale, verticalScale, scale } from '../../../theme';
+import { moderateScale, verticalScale, scale } from '../../../../theme';
 
 const styles = StyleSheet.create({
   touchableOpacityStyle: { flex: 0.5 },

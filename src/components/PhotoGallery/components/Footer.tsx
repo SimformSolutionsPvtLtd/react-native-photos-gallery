@@ -10,7 +10,7 @@ import type {
   PhotosModalProps,
   ScrollToIndexFailErrorType,
 } from '../Types';
-import styles from './PhotoModalStyle';
+import { PhotoModalStyle as styles } from './styles';
 import RenderFooterItem from './RenderFooterItem';
 
 type Props = Pick<

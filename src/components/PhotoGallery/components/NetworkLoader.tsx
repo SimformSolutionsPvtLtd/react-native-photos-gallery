@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
-import styles from './NetworkLoaderStyle';
+import { NetworkLoaderStyle as styles } from './styles';
 import type { NetworkLoaderProps } from '../Types';
 
 const NetworkLoader = ({

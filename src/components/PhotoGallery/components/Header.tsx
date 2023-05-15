@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import Animated from 'react-native-reanimated';
 import type { PhotoModalHeaderProps, PhotosModalProps } from '../Types';
-import styles from './PhotoModalStyle';
+import { PhotoModalStyle as styles } from './styles';
 
 const Header = ({
   renderHeader,
