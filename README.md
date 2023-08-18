@@ -2,7 +2,7 @@
 
 # react-native-photos-gallery
 
-## [![npm version](https://img.shields.io/badge/npm%20package-0.0.1-orange)](https://www.npmjs.org/package/react-native-photos-gallery) [![Android](https://img.shields.io/badge/Platform-Android-green?logo=android)](https://www.android.com) [![iOS](https://img.shields.io/badge/Platform-iOS-green?logo=apple)](https://developer.apple.com/ios) [![MIT](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
+[![react-native-photos-gallery on npm](https://img.shields.io/npm/v/react-native-photos-gallery.svg?style=flat)](https://www.npmjs.com/package/react-native-photos-gallery) [![react-native-photos-gallery downloads](https://img.shields.io/npm/dm/react-native-photos-gallery)](https://www.npmtrends.com/react-native-photos-gallery) [![react-native-photos-gallery install size](https://packagephobia.com/badge?p=react-native-photos-gallery)](https://packagephobia.com/result?p=react-native-photos-gallery) [![Android](https://img.shields.io/badge/Platform-Android-green?logo=android)](https://www.android.com) [![iOS](https://img.shields.io/badge/Platform-iOS-green?logo=apple)](https://developer.apple.com/ios) [![MIT](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
 
 Introducing a cutting-edge Photo Gallery library built with pure JavaScript and React Native Reanimated, designed to enhance your photo gallery experience by allowing you to effortlessly open and view selected photos.
 
@@ -172,6 +172,12 @@ const styles = StyleSheet.create({
 | modalFooterProps             |     -     |  [ModalFooterProps](#modalfooterprops)   | Modal footer props contain `thumbnailFlatListProps`, `footerContainerProps` and `footerContainerStyle` |
 | networkLoaderProps           |     -     |         `ActivityIndicatorProps`         | Provide <a href="https://reactnative.dev/docs/activityindicator#props">ActivityIndicator props</a>     |
 | networkImageProps            |     -     |               `ImageProps`               | Provide <a href="https://reactnative.dev/docs/image#props">Image props</a>                             |
+| onZoomStart                  |     -     |                 function                 | Function call when zoom is start                                                                       |
+| onZoomEnd                    |     -     |                 function                 | Function call when zoom is end                                                                         |
+| maxZoomScale                 |     -     |              `Range<2, 7>`               | Zoom scale value between 2 to 7                                                                        |
+| disableZoom                  |   false   |                 boolean                  | Disable zoom feature                                                                                   |
+| disableSwipeDown             |   false   |                 boolean                  | Disable swipe down to close                                                                            |
+| disableHorizontalList        |   false   |                 boolean                  | Disable horizontal list                                                                                |
 
 ---
 
