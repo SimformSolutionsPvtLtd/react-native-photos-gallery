@@ -13,6 +13,7 @@ const GlobalConstant: Required<
     | 'thumbnailListImageHeight'
     | 'thumbnailListImageSpace'
     | 'thumbnailListImageWidth'
+    | 'maxZoomScale'
   >
 > &
   GlobalConstantType = {
@@ -28,6 +29,10 @@ const GlobalConstant: Required<
   originExtraTop: 5,
   originExtraWidth: 30,
   originExtraHeight: 10,
+  maxZoomScaleThreadSold: 6,
+  minZoomScaleThreadSold: 2,
+  maxZoomScale: 3,
+  minZoomScale: 1,
 };
 
 export default GlobalConstant;

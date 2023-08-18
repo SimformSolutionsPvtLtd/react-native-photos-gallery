@@ -30,6 +30,11 @@ const PhotoGallery = ({
   networkLoaderProps,
   renderNetworkLoader,
   networkImageProps,
+  onZoomStart,
+  onZoomEnd,
+  maxZoomScale,
+  disableZoom,
+  disableSwipeDown,
   ...rest
 }: PhotoGalleryProps) => {
   const {
@@ -91,6 +96,11 @@ const PhotoGallery = ({
           networkLoaderProps,
           renderNetworkLoader,
           networkImageProps,
+          onZoomStart,
+          onZoomEnd,
+          maxZoomScale,
+          disableZoom,
+          disableSwipeDown,
         }}
         item={selectedItem}
         {...modalProps}>

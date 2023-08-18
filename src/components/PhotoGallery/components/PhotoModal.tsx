@@ -1,5 +1,9 @@
 import React from 'react';
 import { Modal } from 'react-native';
+import {
+  GestureDetector,
+  GestureHandlerRootView,
+} from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 import { usePhotoModal } from '../hooks';
 import type { PhotosModalProps } from '../Types';
@@ -30,6 +34,11 @@ const PhotosModal = ({
   animatedThumbnailScrollSpeed,
   animatedImageDelay,
   modalBackgroundStyle = {},
+  onZoomStart,
+  onZoomEnd,
+  maxZoomScale,
+  disableZoom,
+  disableSwipeDown,
   ...rest
 }: PhotosModalProps) => {
   const {
@@ -44,6 +53,7 @@ const PhotosModal = ({
     currentItem,
     setCurrentItem,
     setFooterHeight,
+    gesture,
   } = usePhotoModal({
     visible,
     children,
@@ -56,6 +66,11 @@ const PhotosModal = ({
     animationCloseSpeed,
     animatedThumbnailScrollSpeed,
     animatedImageDelay,
+    onZoomStart,
+    onZoomEnd,
+    maxZoomScale,
+    disableZoom,
+    disableSwipeDown,
   });
   const { containerProps, containerStyle } = modalHeaderProps;
   const { thumbnailFlatListProps, footerContainerProps, footerContainerStyle } =
@@ -64,45 +79,47 @@ const PhotosModal = ({
 
   return (
     <Modal visible={visible} transparent {...rest}>
-      <Animated.View
-        style={[styles.backgroundView, boxOpacityStyle, modalBackgroundStyle]}
-        {...modalBackgroundProps}
-      />
-      <Animated.View
-        style={[styles.contentView, openStyle, closeStyle, contentStyle]}
-        {...contentProps}>
-        {renderChildren}
-      </Animated.View>
-      <Header
-        {...{
-          renderHeader,
-          close,
-          boxOpacityStyle,
-          containerProps,
-          containerStyle,
-        }}
-      />
-      <Footer
-        ref={footerFlatListRef}
-        {...{
-          data,
-          handleScroll,
-          animatedProps,
-          currentItem,
-          setCurrentItem,
-          boxOpacityStyle,
-          thumbnailFlatListProps,
-          footerContainerProps,
-          thumbnailListImageHeight,
-          thumbnailListImageWidth,
-          thumbnailListImageSpace,
-          footerContainerStyle,
-          networkLoaderProps,
-          renderNetworkLoader,
-          networkImageProps,
-        }}
-        getFooterContainerHeight={setFooterHeight}
-      />
+      <GestureHandlerRootView style={styles.gestureHandlerRootViewStyle}>
+        <Animated.View
+          style={[styles.backgroundView, boxOpacityStyle, modalBackgroundStyle]}
+          {...modalBackgroundProps}
+        />
+        <Animated.View
+          style={[styles.contentView, openStyle, closeStyle, contentStyle]}
+          {...contentProps}>
+          <GestureDetector gesture={gesture}>{renderChildren}</GestureDetector>
+        </Animated.View>
+        <Header
+          {...{
+            renderHeader,
+            close,
+            boxOpacityStyle,
+            containerProps,
+            containerStyle,
+          }}
+        />
+        <Footer
+          ref={footerFlatListRef}
+          {...{
+            data,
+            handleScroll,
+            animatedProps,
+            currentItem,
+            setCurrentItem,
+            boxOpacityStyle,
+            thumbnailFlatListProps,
+            footerContainerProps,
+            thumbnailListImageHeight,
+            thumbnailListImageWidth,
+            thumbnailListImageSpace,
+            footerContainerStyle,
+            networkLoaderProps,
+            renderNetworkLoader,
+            networkImageProps,
+          }}
+          getFooterContainerHeight={setFooterHeight}
+        />
+      </GestureHandlerRootView>
     </Modal>
   );
 };
