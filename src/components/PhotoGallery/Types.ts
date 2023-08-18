@@ -42,6 +42,7 @@ export interface PhotoGalleryProps
       | 'maxZoomScale'
       | 'disableSwipeDown'
       | 'disableZoom'
+      | 'disableHorizontalList'
     >,
     Pick<ListItemProps, 'networkLoaderProps' | 'networkImageProps'>,
     Pick<NetworkLoaderProps, 'renderNetworkLoader'> {
@@ -155,6 +156,7 @@ export interface PhotosModalProps
       'top' | 'left' | 'width' | 'height' | 'position'
     >
   >;
+  disableHorizontalList?: boolean;
 }
 
 export interface PhotoModalHeaderProps {

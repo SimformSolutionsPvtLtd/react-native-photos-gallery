@@ -35,6 +35,7 @@ const PhotoGallery = ({
   maxZoomScale,
   disableZoom,
   disableSwipeDown,
+  disableHorizontalList,
   ...rest
 }: PhotoGalleryProps) => {
   const {
@@ -101,6 +102,7 @@ const PhotoGallery = ({
           maxZoomScale,
           disableZoom,
           disableSwipeDown,
+          disableHorizontalList,
         }}
         item={selectedItem}
         {...modalProps}>
