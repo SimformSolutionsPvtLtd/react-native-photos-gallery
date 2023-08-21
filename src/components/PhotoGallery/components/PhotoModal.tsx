@@ -99,27 +99,29 @@ const PhotosModal = ({
             containerStyle,
           }}
         />
-        <Footer
-          ref={footerFlatListRef}
-          {...{
-            data,
-            handleScroll,
-            animatedProps,
-            currentItem,
-            setCurrentItem,
-            boxOpacityStyle,
-            thumbnailFlatListProps,
-            footerContainerProps,
-            thumbnailListImageHeight,
-            thumbnailListImageWidth,
-            thumbnailListImageSpace,
-            footerContainerStyle,
-            networkLoaderProps,
-            renderNetworkLoader,
-            networkImageProps,
-          }}
-          getFooterContainerHeight={setFooterHeight}
-        />
+        {!disableHorizontalList && (
+          <Footer
+            ref={footerFlatListRef}
+            {...{
+              data,
+              handleScroll,
+              animatedProps,
+              currentItem,
+              setCurrentItem,
+              boxOpacityStyle,
+              thumbnailFlatListProps,
+              footerContainerProps,
+              thumbnailListImageHeight,
+              thumbnailListImageWidth,
+              thumbnailListImageSpace,
+              footerContainerStyle,
+              networkLoaderProps,
+              renderNetworkLoader,
+              networkImageProps,
+            }}
+            getFooterContainerHeight={setFooterHeight}
+          />
+        )}
       </GestureHandlerRootView>
     </Modal>
   );

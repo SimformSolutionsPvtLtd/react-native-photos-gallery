@@ -1,6 +1,6 @@
 {
   "name": "react-native-photos-gallery",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A React Native animated custom photo gallery component",
   "main": "lib/index",
   "types": "lib/index.d.ts",
@@ -20,7 +20,21 @@
     "gallery",
     "photo",
     "reanimated",
-    "component"
+    "component",
+    "android",
+    "ios",
+    "reanimated-component",
+    "photos-gallery",
+    "react-native-photo-gallery",
+    "react-native-photos-gallery",
+    "gesture-handler",
+    "zoom-images",
+    "zoom-image",
+    "zoom",
+    "animation",
+    "react-component",
+    "animated-photos-gallery",
+    "animated-photo-gallery"
   ],
   "license": "MIT",
   "files": [
